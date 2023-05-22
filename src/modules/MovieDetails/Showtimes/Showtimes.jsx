@@ -21,7 +21,7 @@ function Showtimes() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [tabPosition, setTabPosition] = useState("left");
   const [maHeThongRap, setMaHeThongRap] = useState("BHDStar");
-  // const [maLichChieuPhim, setMaLichChieuPhim] = useState;
+  const [maLichChieuPhim, setMaLichChieuPhim] = useState;
 
   const getHeThongRap = async () => {
     try {
@@ -32,14 +32,16 @@ function Showtimes() {
     }
   };
 
-  // const getMaLichChieuPhim = async () => {
-  //   try {
-  //     const data = await apiGetLichChieuPhim(maPhim);
-  //     setMaLichChieuPhim(data.content);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const getMaLichChieuPhim = async () => {
+    try {
+      const data = await apiGetLichChieuPhim(maLichChieuPhim);
+      console.log(data.content);
+      setMaLichChieuPhim(data.content);
+      return data.content;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const getLichChieuRap = async () => {
     try {
@@ -59,7 +61,7 @@ function Showtimes() {
     getHeThongRap();
     // getCumRap();
     getLichChieuRap();
-    // getMaLichChieuPhim();
+    getMaLichChieuPhim();
   }, [maHeThongRap]);
 
   useEffect(() => {
@@ -118,6 +120,7 @@ function Showtimes() {
                                   style={{
                                     textAlign: "justify",
                                     width: "500px",
+                                    color: "gray",
                                   }}
                                 >
                                   {cumRap.diaChi}
@@ -125,7 +128,7 @@ function Showtimes() {
                               </>
                             }
                           >
-                            {cumRap?.danhSachPhim.map((phim, index) => {
+                            {cumRap?.LichChieuPhim.map((phim, index) => {
                               // console.log("phim", phim);
                               return (
                                 <div className={styles.movie}>
@@ -166,7 +169,7 @@ function Showtimes() {
                                                   >
                                                     {moment(
                                                       lich.ngayChieuGioChieu
-                                                    ).format("DD/MM ~ hh:mm A")}
+                                                    ).format("hh:mm A")}
                                                   </p>
                                                 </Col>
                                               );

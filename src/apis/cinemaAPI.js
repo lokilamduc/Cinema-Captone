@@ -29,14 +29,14 @@ export const apiGetLichChieuRap = async (cinemaID) => {
   return data;
 };
 
-// export const apiGetLichChieuPhim = async (maPhim) => {
-//   const { data } = await axiosClient.get(
-//     "/QuanLyRap/LayThongTinLichChieuPhim",
-//     {
-//       params: {
-//         MaPhim: maPhim,
-//       },
-//     }
-//   );
-//   return data;
-// };
+export const apiGetLichChieuPhim = async (maPhim) => {
+  const { data } = await axiosClient.get(
+    "/QuanLyRap/LayThongTinLichChieuPhim",
+    {
+      params: {
+        MaPhim: maPhim,
+      },
+    }
+  );
+  return data;
+};

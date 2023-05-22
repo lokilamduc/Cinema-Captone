@@ -8,7 +8,6 @@ import AdminRoute from "./routes/AdminRoute";
 import AdminLayout from "./layouts/AdminLayout/AdminLayout";
 import MovieManagement from "./modules/MovieManagement/MovieManagement";
 
-
 // import Home from "./modules/Home/Home";
 // import MovieDetails from "./modules/MovieDetails/MovieDetails";
 // import Signin from "./modules/Auth/Signin/Signin";
@@ -25,11 +24,11 @@ function App() {
   return (
     <Suspense fallback={<h1>Loading</h1>}>
       <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path="/movies/:movieId" element={<MovieDetails />} />
-          <Route
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path="/movies/:movieId" element={<MovieDetails />} />
+            <Route
               path="/booking/:bookingId"
               element={
                 <ProtectedRoute>
@@ -37,14 +36,14 @@ function App() {
                 </ProtectedRoute>
               }
             />
-        </Route>
+          </Route>
 
-        <Route path="/" element={<AuthLayout />}>
-          <Route path="/signin" element={<Signin/>} />
-          <Route path="/signup" element={<Signup />} />
-        </Route>
+          <Route path="/" element={<AuthLayout />}>
+            <Route path="/signin" element={<Signin />} />
+            <Route path="/signup" element={<Signup />} />
+          </Route>
 
-        <Route
+          <Route
             path="/admin"
             element={
               <AdminRoute>
@@ -56,9 +55,8 @@ function App() {
             {/* <Route path="users" element={<UserManagement />} /> */}
             {/* <Route path="tickets" element={<TicketsManagement />} /> */}
           </Route>
-
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
     </Suspense>
   );
 }
