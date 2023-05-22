@@ -1,0 +1,8 @@
+
+// tại nó tạo ra 1 chuỗi ngãu nhiên nên hok sợ trùng nhau khi dùng scss 
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

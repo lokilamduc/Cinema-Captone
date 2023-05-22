@@ -1,0 +1,41 @@
+.cinemaTabPanel {
+    overflow-y: scroll;
+    width: "540px";
+    flex-grow: 1;
+    height: 580px;
+    
+   
+}
+    .container{
+        margin: 23px 0 50px 0;
+        margin-left: 10%;
+        margin-right: 10%;
+        width: 80%;
+        border: 1px solid  rgba(238,238,238,.88);
+        height: 580px;
+    }
+
+    .movie{
+        display: flex;
+        position: relative;
+        margin-bottom: 20px;
+
+    & ::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 38%;
+      height: 1px;
+      bottom: 0;
+      background: rgba(238,238,238,.88);
+      
+      
+        }}
+
+        .ungdung{
+            background: rebeccapurple;
+            background-size: contain;
+            padding: 120px 0 80px 0;
+        }
+
+        
